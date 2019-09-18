@@ -1,0 +1,19 @@
+<h1>Tweetsの一覧(index)</h1>
+
+<table>
+  <tr>
+    <th>タイトル</th>
+    <th>内容</th>
+
+  </tr>
+
+<% @tweets.each do |tweet| %>
+  <tr>
+    <td><%= tweet.title %></td>
+    <td><%= tweet.content %></td>
+  </tr>
+<% end %>
+</table>
+
+<br>
+<%= link_to '新しくツイートを投稿する', new_tweet_path %>
