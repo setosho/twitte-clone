@@ -11,7 +11,8 @@
   <tr>
     <td><%= tweet.title %></td>
     <td><%= tweet.content %></td>
-    <td><%= link_to "ツイートを編集する", edit_tweet_path(tweet.id) %></td>
+    <td><%= link_to "ツイートを編集する", edit_tweet_path(tweet.id), data: {confirm: '本当に編集しますか？'} %></td>
+    <td><%= link_to 'ツイートを削除する', tweet_path(tweet.id), method: :delete ,data: { confirm:'本当に削除しますか？'} %></td>
   </tr>
 <% end %>
 </table>
