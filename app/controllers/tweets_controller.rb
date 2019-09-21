@@ -44,6 +44,12 @@ class TweetsController < ApplicationController
     render :new if @tweet.invalid?
   end
 
+  def show
+    @tweet = Tweet.new(tweet_params)
+    render :new if @tweet.invalid?
+  end
+
+
   private
 
   def tweet_params
