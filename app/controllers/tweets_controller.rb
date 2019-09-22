@@ -1,5 +1,5 @@
 class TweetsController < ApplicationController
-  before_action :set_tweet, only: [:edit, :update, :destroy]
+  before_action :set_tweet, only: [:edit, :update, :destroy, ]
   def index
     @tweets = Tweet.all
   end
@@ -45,10 +45,8 @@ class TweetsController < ApplicationController
   end
 
   def show
-    @tweet = Tweet.new(tweet_params)
-    render :new if @tweet.invalid?
+    @tweet = Tweet.new
   end
-
 
   private
 
