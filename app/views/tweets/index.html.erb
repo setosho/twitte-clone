@@ -1,20 +1,34 @@
-<h1>Tweetsの一覧(index)</h1>
+<body>
+  <div class="container">
+    <header class="header clearfix">
+      <p>ヘッダー</p>
+    <br>
+    <h1>Tweetsの一覧(index)</h1>
+    <br>
 
-<p><%= notice %></p>
+    <p><%= notice %></p>
+    <section>
+     <table>
+      <tr>
+        <th>内容</th>
+      </tr>
 
-<table>
-  <tr>
-    <th>内容</th>
-  </tr>
+     <% @tweets.each do |tweet| %>
+      <tr>
+        <td><%= tweet.content %></td>
+        <td><%= link_to "ツイートを編集する", edit_tweet_path(tweet.id), data: {confirm: '本当に編集しますか？'} %></td>
+        <td><%= link_to 'ツイートを削除する', tweet_path(tweet.id), method: :delete ,data: { confirm:'本当に削除しますか？'} %></td>
+      </tr>
+     <% end %>
+     </table>
+    </section>
 
-<% @tweets.each do |tweet| %>
-  <tr>
-    <td><%= tweet.content %></td>
-    <td><%= link_to "ツイートを編集する", edit_tweet_path(tweet.id), data: {confirm: '本当に編集しますか？'} %></td>
-    <td><%= link_to 'ツイートを削除する', tweet_path(tweet.id), method: :delete ,data: { confirm:'本当に削除しますか？'} %></td>
-  </tr>
-<% end %>
-</table>
-
-<br>
-<%= link_to '新しくツイートを投稿する', new_tweet_path %>
+    <br>
+    <section2>
+     <%= link_to '新しくツイートを投稿する', new_tweet_path %>
+    </section2>
+  </div>
+  <footer class="footer">
+      <p>フッター</p>
+  </footer>
+</body>
